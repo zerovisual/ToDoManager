@@ -25,7 +25,9 @@
     
     
     self.toDoTitleLabel.text = incomingToDoEntity.toDoTitle;
-    self.toDoAmountLabel.text =[NSString stringWithFormat: @"%@", incomingToDoEntity.toDoAmount];
+    NSString *sign = @"$";
+    NSString *num = [NSString stringWithFormat: @"%@", incomingToDoEntity.toDoAmount];
+    self.toDoAmountLabel.text = [sign stringByAppendingString:num];
     self.localToDoEntity = incomingToDoEntity;
 }
 

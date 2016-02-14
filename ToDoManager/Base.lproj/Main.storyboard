@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCellIdentifier" id="RG3-eD-R9j" customClass="MyUITableViewCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyUITableViewCellIdentifier" id="RG3-eD-R9j" customClass="MyUITableViewCell">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RG3-eD-R9j" id="DZU-gM-pGO">
@@ -48,6 +48,7 @@
                                 <connections>
                                     <outlet property="toDoAmountLabel" destination="Gnc-K9-ayf" id="64S-cP-fsU"/>
                                     <outlet property="toDoTitleLabel" destination="yHg-j8-Npz" id="hHv-k4-mFA"/>
+                                    <segue destination="W9Q-fK-3EN" kind="show" id="6D1-8V-24d"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -105,18 +106,27 @@
                                 <color key="backgroundColor" red="1" green="0.93455878314600482" blue="0.64661297220386993" alpha="0.48889073581560283" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="payeeFieldEditted:" destination="W9Q-fK-3EN" eventType="editingDidEnd" id="E4C-8H-Puj"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xfU-Np-7ux">
                                 <rect key="frame" x="10" y="238" width="560" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.93455878314600482" blue="0.64661297220386993" alpha="0.48889073581560283" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="amountFieldEditted:" destination="W9Q-fK-3EN" eventType="editingDidEnd" id="vcL-6c-p13"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZDp-8b-yMx">
                                 <rect key="frame" x="10" y="100" width="560" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.93455878314600482" blue="0.64661297220386993" alpha="0.48889073581560283" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="titleFieldEditted:" destination="W9Q-fK-3EN" eventType="editingDidEnd" id="Hpg-qL-5ti"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V9e-Gh-Y8E">
                                 <rect key="frame" x="10" y="72" width="33.5" height="20.5"/>
@@ -147,7 +157,18 @@
                             <constraint firstItem="kd3-ru-L1E" firstAttribute="leading" secondItem="aZH-CI-EIr" secondAttribute="leading" id="xno-LK-E3Z"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="To Do" id="ho1-lo-UMI"/>
+                    <navigationItem key="navigationItem" title="To Do" id="ho1-lo-UMI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="6Bq-eu-yPu">
+                            <connections>
+                                <action selector="trashTapped:" destination="W9Q-fK-3EN" id="Yc9-U0-DvW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="amountField" destination="xfU-Np-7ux" id="5Q8-PP-1ne"/>
+                        <outlet property="payeeField" destination="kd3-ru-L1E" id="Drr-ph-XlQ"/>
+                        <outlet property="titleField" destination="ZDp-8b-yMx" id="lWE-zq-07b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5nq-wC-7lQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -170,4 +191,7 @@
             <point key="canvasLocation" x="-521" y="342"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="op6-eT-LUR"/>
+    </inferredMetricsTieBreakers>
 </document>

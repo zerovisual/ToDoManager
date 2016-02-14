@@ -2,7 +2,7 @@
 //  ToDoEntity+CoreDataProperties.m
 //  ToDoManager
 //
-//  Created by Vincent Cordaro on 2/13/16.
+//  Created by Vincent Cordaro on 2/14/16.
 //  Copyright © 2016 Vincent Cordaro. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu

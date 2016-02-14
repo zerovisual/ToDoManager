@@ -10,6 +10,7 @@
 #import "MyUITableViewController.h"
 #import "ToDoEntity.h"
 #import "MyUITableViewCell.h"
+#import "VCHandlesToDoEntity.h"
 
 @interface MyUITableViewController () <NSFetchedResultsControllerDelegate, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
@@ -169,8 +170,23 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    id<VCHandlesMOC> child = (id<VCHandlesMOC>)[segue destinationViewController];
+    
+    id<VCHandlesMOC,VCHandlesToDoEntity> child = (id<VCHandlesMOC,VCHandlesToDoEntity>)[segue destinationViewController];
     [child recieveMOC:self.managedObjectContext];
+    
+    ToDoEntity *item;
+    
+  
+    
+    if([sender isMemberOfClass:[UIBarButtonItem class]]){
+        
+            item = [NSEntityDescription insertNewObjectForEntityForName:@"ToDoEntity" inManagedObjectContext:self.managedObjectContext];
+        
+    }else{
+        MyUITableViewCell *source = (MyUITableViewCell *) sender;
+        item = source.localToDoEntity;
+    }
+     [child recieveToDoEntity:item];
 }
 
 

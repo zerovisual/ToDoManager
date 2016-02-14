@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
     <entity name="ToDoEntity" representedClassName="ToDoEntity" syncable="YES">
-        <attribute name="toDoAmount" optional="YES" attributeType="Double" minValueString="0" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="toDoAmount" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="toDoPayee" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="toDoTitle" attributeType="String" minValueString="1" syncable="YES"/>
     </entity>
